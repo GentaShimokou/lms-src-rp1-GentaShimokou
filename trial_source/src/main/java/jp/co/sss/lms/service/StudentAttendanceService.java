@@ -334,4 +334,24 @@ public class StudentAttendanceService {
 		return messageUtil.getMessage(Constants.PROP_KEY_ATTENDANCE_UPDATE_NOTICE);
 	}
 
+	/**
+	 * 未入力件数取得
+	 * 
+	 * @param tStudentAttendanceMapper
+	 * @return 未入力チェック
+	 * @throws ParseException
+	 */
+	//public boolean notEnterCheck() throws ParseException {
+		
+		// 当日日付
+		//Date date = new Date();
+
+		//当日より過去の日付をループ？
+		//for();
+
+		//件数が0より大きければtrue、そうでなければfalse
+		//if(notEnterCheck() > 0){}
+	
+	//}
+
 }
