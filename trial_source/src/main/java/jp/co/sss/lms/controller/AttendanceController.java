@@ -47,6 +47,12 @@ public class AttendanceController {
 				.getAttendanceManagement(loginUserDto.getCourseId(), loginUserDto.getLmsUserId());
 		model.addAttribute("attendanceManagementDtoList", attendanceManagementDtoList);
 
+		//過去日に未入力があった際の表示　Redmine質問③
+		//boolean notEnterCheck = studentAttendanceService. notEnterCheck();
+		
+		// JSに渡すためにスコープ登録
+		//model.addAttribute("notEnterCheck", notEnterCheck);
+
 		return "attendance/detail";
 	}
 

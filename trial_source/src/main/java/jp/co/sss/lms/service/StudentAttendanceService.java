@@ -341,17 +341,20 @@ public class StudentAttendanceService {
 	 * @return 未入力チェック
 	 * @throws ParseException
 	 */
-	//public boolean notEnterCheck() throws ParseException {
+	public boolean notEnterCheck() throws ParseException {
 		
-		// 当日日付
-		//Date date = new Date();
-
-		//当日より過去の日付をループ？
-		//for();
-
+		//当日日付
+		Date date = new Date();
+		
+		//未入力件数の取得　Redmine質問②
+		//Integer count = tStudentAttendanceMapper.notEnterCount();
+		
 		//件数が0より大きければtrue、そうでなければfalse
-		//if(notEnterCheck() > 0){}
+		//if (count > 0) {
+			//return true;
+		//}
+		return false;
 	
-	//}
+	}
 
 }
