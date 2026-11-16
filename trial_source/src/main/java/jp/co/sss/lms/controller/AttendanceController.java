@@ -40,7 +40,7 @@ public class AttendanceController {
 	 * @throws ParseException
 	 */
 	@RequestMapping(path = "/detail", method = RequestMethod.GET)
-	public String index(Model model) {
+	public String index(Model model) throws ParseException {
 
 		// 勤怠一覧の取得
 		List<AttendanceManagementDto> attendanceManagementDtoList = studentAttendanceService
@@ -48,10 +48,10 @@ public class AttendanceController {
 		model.addAttribute("attendanceManagementDtoList", attendanceManagementDtoList);
 
 		//過去日に未入力があった際の表示　Redmine質問③
-		//boolean notEnterCheck = studentAttendanceService. notEnterCheck();
+		boolean notEnterCheck = studentAttendanceService. notEnterCheck();
 		
 		// JSに渡すためにスコープ登録
-		//model.addAttribute("notEnterCheck", notEnterCheck);
+		model.addAttribute("notEnterCheck", notEnterCheck);
 
 		return "attendance/detail";
 	}

@@ -43,6 +43,9 @@ public class StudentAttendanceService {
 	private LoginUserDto loginUserDto;
 	@Autowired
 	private TStudentAttendanceMapper tStudentAttendanceMapper;
+	
+	//@Autowired
+	//private TStudentAttendance tStudentAttendance;
 
 	/**
 	 * 勤怠一覧情報取得
@@ -344,14 +347,22 @@ public class StudentAttendanceService {
 	public boolean notEnterCheck() throws ParseException {
 		
 		//当日日付
-		Date date = new Date();
+		//Date date = new Date();
+		
+		//引数情報
+		//Integer lmsUserId = loginUserUtil.isStudent() ? loginUserDto.getLmsUserId()
+		//: tStudentAttendance.getLmsUserId();
+		
+		//Short deleteFlg = tStudentAttendance.getDeleteFlg();
+		
+		//Date trainingDate = tStudentAttendance.getTrainingDate();
 		
 		//未入力件数の取得　Redmine質問②
-		//Integer count = tStudentAttendanceMapper.notEnterCount();
+		//Integer count = tStudentAttendanceMapper.notEnterCount(lmsUserId, deleteFlg, trainingDate);
 		
 		//件数が0より大きければtrue、そうでなければfalse
 		//if (count > 0) {
-			//return true;
+		//return true;
 		//}
 		return false;
 	
