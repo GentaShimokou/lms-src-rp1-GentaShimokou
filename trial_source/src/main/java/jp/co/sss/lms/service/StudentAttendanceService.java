@@ -1,6 +1,7 @@
 package jp.co.sss.lms.service;
 
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -349,31 +350,29 @@ public class StudentAttendanceService {
 		//当日日付
 		Date trainingDate = new Date();
 		
-		//SimpleDateFormat sdf = new SimpleDateFormat("yyyy年M月d日(E)");
+		//書式化文字列
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy年M月d日(E)");
 		
-		//sdf.setLenient(false);
+		//Date型の日付をString型へ変換
+		sdf.format(trainingDate);
 		
-		//Date today = sdf.parse(today);
+		//厳密に日付チェックを行う
+		sdf.setLenient(false);
 		
-		//Date trainingDate = new Date();
-		//sdf.parse("2026年4月31日(金)");
-		
-		//Date today = sdf.parse("2026年11月16日(月)");
+		//String型へ変換した日付を格納
+		sdf.parse(sdf.format(trainingDate));
 		
 		//引数情報
 		Integer lmsUserId = loginUserDto.getLmsUserId();
-		
 		Short deleteFlg = Constants.DB_FLG_FALSE;
 		
-		//Date trainingDate = //tStudentAttendance.getTrainingDate();
-		
-		//未入力件数の取得　Redmine質問②
+		//未入力件数の取得
 		Integer count = tStudentAttendanceMapper.notEnterCount(lmsUserId, deleteFlg, trainingDate);
 		
 		//件数が0より大きければtrue、そうでなければfalse
-		//if (count > 0) {
-			//return true;
-		//}
+		if (count > 0) {
+			return true;
+		}
 		return false;
 	
 	}
