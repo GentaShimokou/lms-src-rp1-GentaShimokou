@@ -347,22 +347,32 @@ public class StudentAttendanceService {
 	public boolean notEnterCheck() throws ParseException {
 		
 		//当日日付
-		//Date date = new Date();
+		Date trainingDate = new Date();
+		
+		//SimpleDateFormat sdf = new SimpleDateFormat("yyyy年M月d日(E)");
+		
+		//sdf.setLenient(false);
+		
+		//Date today = sdf.parse(today);
+		
+		//Date trainingDate = new Date();
+		//sdf.parse("2026年4月31日(金)");
+		
+		//Date today = sdf.parse("2026年11月16日(月)");
 		
 		//引数情報
-		//Integer lmsUserId = loginUserUtil.isStudent() ? loginUserDto.getLmsUserId()
-		//: tStudentAttendance.getLmsUserId();
+		Integer lmsUserId = loginUserDto.getLmsUserId();
 		
-		//Short deleteFlg = tStudentAttendance.getDeleteFlg();
+		Short deleteFlg = Constants.DB_FLG_FALSE;
 		
-		//Date trainingDate = tStudentAttendance.getTrainingDate();
+		//Date trainingDate = //tStudentAttendance.getTrainingDate();
 		
 		//未入力件数の取得　Redmine質問②
-		//Integer count = tStudentAttendanceMapper.notEnterCount(lmsUserId, deleteFlg, trainingDate);
+		Integer count = tStudentAttendanceMapper.notEnterCount(lmsUserId, deleteFlg, trainingDate);
 		
 		//件数が0より大きければtrue、そうでなければfalse
 		//if (count > 0) {
-		//return true;
+			//return true;
 		//}
 		return false;
 	
