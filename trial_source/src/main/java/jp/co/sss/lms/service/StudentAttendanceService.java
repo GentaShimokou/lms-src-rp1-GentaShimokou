@@ -348,19 +348,21 @@ public class StudentAttendanceService {
 	public boolean notEnterCheck() throws ParseException {
 		
 		//当日日付
-		Date trainingDate = new Date();
+		Date today = new Date();
 		
 		//書式化文字列
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy年M月d日(E)");
 		
 		//Date型の日付をString型へ変換
-		sdf.format(trainingDate);
+		sdf.format(today);
 		
 		//厳密に日付チェックを行う
 		sdf.setLenient(false);
 		
 		//String型へ変換した日付を格納
-		sdf.parse(sdf.format(trainingDate));
+		//sdf.parse(sdf.format(today));
+		
+		Date trainingDate = sdf.parse(sdf.format(today));
 		
 		//引数情報
 		Integer lmsUserId = loginUserDto.getLmsUserId();
