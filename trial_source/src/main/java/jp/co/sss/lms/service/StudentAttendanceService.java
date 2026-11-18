@@ -223,6 +223,8 @@ public class StudentAttendanceService {
 		attendanceForm.setUserName(loginUserDto.getUserName());
 		attendanceForm.setLeaveFlg(loginUserDto.getLeaveFlg());
 		attendanceForm.setBlankTimes(attendanceUtil.setBlankTime());
+		//attendanceForm.setHourMap(attendanceUtil.setHourMap());
+		//attendanceForm.setMinuteMap(attendanceUtil.setMinuteMap());
 
 		// 途中退校している場合のみ設定
 		if (loginUserDto.getLeaveDate() != null) {
@@ -254,6 +256,14 @@ public class StudentAttendanceService {
 			dailyAttendanceForm.setDispTrainingDate(dateUtil
 					.dateToString(attendanceManagementDto.getTrainingDate(), "yyyy年M月d日(E)"));
 			dailyAttendanceForm.setStatusDispName(attendanceManagementDto.getStatusDispName());
+			//出勤時間（時）の追加
+			//dailyAttendanceForm
+			//.setTrainingStartTimeHour
+			//(timeString = attendanceManagementDto.getTrainingStartTime();
+			//startHour=Integer.parseInt(timeString.substring(0, 2));
+			//attendanceManagementDto.getTrainingStartTime());
+			
+			
 
 			attendanceForm.getAttendanceList().add(dailyAttendanceForm);
 		}

@@ -147,4 +147,34 @@ public class AttendanceUtil {
 		return false;
 	}
 
+	/**
+	 * 時間マップ取得
+	 * 
+	 * @return 時間マップ
+	 */
+	public LinkedHashMap<Integer, String> setHourMap(){
+		// 
+		LinkedHashMap<Integer, String>hourMap = new LinkedHashMap<>();
+		// 
+		hourMap.put(null, "");
+		for (int i = 0; i < 24; i++ ) {
+			hourMap.put(i,String.format("%02d", i));
+		}
+		return hourMap;
+	}
+
+	/**
+	 * 分マップ取得
+	 * 
+	 * @return 分マップ
+	 */
+	public LinkedHashMap<Integer, String> setMinuteMap(){
+		LinkedHashMap<Integer, String>minuteMap = new LinkedHashMap<>();
+		//
+		minuteMap.put(null, "");
+		for (int i = 0; i < 60; i++ ) {
+			minuteMap.put(i,String.format("%02d", i));
+		}
+		return minuteMap;
+	}
 }

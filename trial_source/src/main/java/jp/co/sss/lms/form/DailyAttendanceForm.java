@@ -46,5 +46,8 @@ public class DailyAttendanceForm {
 	private String courseName;
 	/** インデックス */
 	private String index;
-
+	/** 時間マップ */
+	//private Integer hourMap;
+	/** 分マップ */
+	//private Integer minuteMap;
 }
