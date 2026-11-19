@@ -223,6 +223,7 @@ public class StudentAttendanceService {
 		attendanceForm.setUserName(loginUserDto.getUserName());
 		attendanceForm.setLeaveFlg(loginUserDto.getLeaveFlg());
 		attendanceForm.setBlankTimes(attendanceUtil.setBlankTime());
+		//下公現太‐Task.26
 		//attendanceForm.setHourMap(attendanceUtil.setHourMap());
 		//attendanceForm.setMinuteMap(attendanceUtil.setMinuteMap());
 
@@ -256,6 +257,8 @@ public class StudentAttendanceService {
 			dailyAttendanceForm.setDispTrainingDate(dateUtil
 					.dateToString(attendanceManagementDto.getTrainingDate(), "yyyy年M月d日(E)"));
 			dailyAttendanceForm.setStatusDispName(attendanceManagementDto.getStatusDispName());
+			
+			//下公現太‐Task.26
 			//出勤時間（時）の追加
 			//dailyAttendanceForm
 			//.setTrainingStartTimeHour
@@ -350,12 +353,11 @@ public class StudentAttendanceService {
 
 	/**
 	 * 未入力件数取得
-	 * 
+	 * @author 下公現太‐Task.25
 	 * @param tStudentAttendanceMapper
 	 * @return 未入力チェック
 	 * @throws ParseException
 	 */
-	//下公現太‐Task.25
 	public boolean notEnterCheck() throws ParseException {
 		
 		//当日日付
@@ -364,15 +366,7 @@ public class StudentAttendanceService {
 		//書式化文字列
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy年M月d日(E)");
 
-		//Date型の日付をString型へ変換
-		sdf.format(today);
-
-		//厳密に日付チェックを行う
-		sdf.setLenient(false);
-
-		//String型へ変換した日付を格納
-		//sdf.parse(sdf.format(today));
-
+		//Date型の日付を書式化文字列し、さらにDate型に変換、変数に格納する
 		Date trainingDate = sdf.parse(sdf.format(today));
 
 		//引数情報
