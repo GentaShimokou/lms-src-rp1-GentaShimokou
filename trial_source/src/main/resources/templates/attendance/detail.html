@@ -88,13 +88,14 @@
 		}
 	</script>
 	
-	<script th:inline="javascript">
 	<!--過去日未入力確認ダイアログ-->
-	const notEnterCheck = /*[[${notEnterCheck}]]*/ "notEnterCheck";
-	
-	if(notEnterCheck == true){
-		alert("過去日に未入力があります。")
-	}
+	<!-- 下公現太‐Task.25 -->
+	<script th:inline="javascript">
+		const notEnterCheck = /*[[${notEnterCheck}]]*/ "notEnterCheck";
+
+		if (notEnterCheck == true) {
+			alert("過去日に未入力があります。")
+		}
 	</script>
 
 </body>

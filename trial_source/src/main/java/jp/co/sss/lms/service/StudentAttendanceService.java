@@ -355,32 +355,33 @@ public class StudentAttendanceService {
 	 * @return 未入力チェック
 	 * @throws ParseException
 	 */
+	//下公現太‐Task.25
 	public boolean notEnterCheck() throws ParseException {
 		
 		//当日日付
 		Date today = new Date();
-		
+
 		//書式化文字列
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy年M月d日(E)");
-		
+
 		//Date型の日付をString型へ変換
 		sdf.format(today);
-		
+
 		//厳密に日付チェックを行う
 		sdf.setLenient(false);
-		
+
 		//String型へ変換した日付を格納
 		//sdf.parse(sdf.format(today));
-		
+
 		Date trainingDate = sdf.parse(sdf.format(today));
-		
+
 		//引数情報
 		Integer lmsUserId = loginUserDto.getLmsUserId();
 		Short deleteFlg = Constants.DB_FLG_FALSE;
-		
+
 		//未入力件数の取得
 		Integer count = tStudentAttendanceMapper.notEnterCount(lmsUserId, deleteFlg, trainingDate);
-		
+
 		//件数が0より大きければtrue、そうでなければfalse
 		if (count > 0) {
 			return true;
