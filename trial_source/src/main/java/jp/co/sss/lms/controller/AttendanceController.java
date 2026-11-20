@@ -148,6 +148,11 @@ public class AttendanceController {
 				.getAttendanceManagement(loginUserDto.getCourseId(), loginUserDto.getLmsUserId());
 		model.addAttribute("attendanceManagementDtoList", attendanceManagementDtoList);
 
+		//下公現太‐Task.26
+		//出退勤時間の時・分をhh:mm形式に加工する
+		//String formatConversion = studentAttendanceService.formatConversion(AttendanceForm);
+		
+		
 		return "attendance/detail";
 	}
 

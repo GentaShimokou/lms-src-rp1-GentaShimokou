@@ -390,8 +390,19 @@ public class StudentAttendanceService {
 	 * @param 
 	 * @return 出退勤時間形式変換
 	 */
-	//public void formatConversion(AttendanceForm attendanceForm) {
-		//DailyAttendanceForm dailyAttendanceForm = setDailyAttendanceForm;
+	public void formatConversion(AttendanceForm attendanceForm) {
+		
+		for(DailyAttendanceForm dailyAttendanceForm : attendanceForm.getAttendanceList());
+		
+		//if(trainingStartTimeHour != null || trainingStartTimeMinute != null){
+
+			//String startHour = attendanceUtil.setHourMap(hourMap,String.format("%02d",hourMap));
+					//String.format("%02d", attendanceUtil.setHourMap(hourMap));
+			//String startMinute = attendanceForm.trainingStartTimeMinute();
+			
 		//}
+			
+			//dailyAttendanceForm.setTrainingStartTime();
+		}
 
 }
