@@ -149,7 +149,7 @@ public class AttendanceUtil {
 
 	/**
 	 * 時間マップ取得
-	 * 
+	 * @author 下公現太‐Task.26
 	 * @return 時間マップ
 	 */
 	public LinkedHashMap<Integer, String> setHourMap(){
@@ -165,7 +165,7 @@ public class AttendanceUtil {
 
 	/**
 	 * 分マップ取得
-	 * 
+	 * @author 下公現太‐Task.26
 	 * @return 分マップ
 	 */
 	public LinkedHashMap<Integer, String> setMinuteMap(){
@@ -176,5 +176,65 @@ public class AttendanceUtil {
 			minuteMap.put(i,String.format("%02d", i));
 		}
 		return minuteMap;
+	}
+	
+	/**
+	 * 出勤時刻の「時」を取得
+	 * @author 下公現太‐Task.26
+	 * @return 出勤時刻の「時」
+	 */
+	public Integer setTrainingStartTimeHour(String timeString) {
+		//空文字またはNULLだった時にnullを返す
+		if(timeString.isEmpty()) {
+			return null;
+		}
+		//例）「09:15」の時刻から、「9」の部分を切り取る
+		Integer startHour=Integer.parseInt(timeString.substring(0, 2));
+		return startHour;
+	}
+	
+	/**
+	 * 出勤時刻の「分」を取得
+	 * @author 下公現太‐Task.26
+	 * @return 出勤時刻の「分」
+	 */
+	public Integer setTrainingStartTimeMinute(String timeString) {
+		//空文字またはNULLだった時にnullを返す
+		if (timeString.isEmpty()) {
+			return null;
+		}
+		//例）「09:15」の時刻から、「15」の部分を切り取る
+		Integer startMinute=Integer.parseInt(timeString.substring(3));
+		return startMinute;
+	}
+	
+	/**
+	 * 退勤時刻の「時」を取得
+	 * @author 下公現太‐Task.26
+	 * @return 退勤時刻の「時」
+	 */
+	public Integer setTrainingEndTimeHour(String timeString) {
+		//空文字またはNULLだった時にnullを返す
+		if (timeString.isEmpty()) {
+			return null;
+		}
+		//例）「09:15」の時刻から、「9」の部分を切り取る
+		Integer endHour=Integer.parseInt(timeString.substring(0, 2));
+		return endHour;
+	}
+	
+	/**
+	 * 退勤時刻の「分」を取得
+	 * @author 下公現太‐Task.26
+	 * @return 退勤時刻の「分」
+	 */
+	public Integer setTrainingEndTimeMinute(String timeString) {
+		//空文字またはNULLだった時にnullを返す
+		if (timeString.isEmpty()) {
+			return null;
+		}
+		//例）「09:15」の時刻から、「15」の部分を切り取る
+		Integer endMinute=Integer.parseInt(timeString.substring(3));
+		return endMinute;
 	}
 }

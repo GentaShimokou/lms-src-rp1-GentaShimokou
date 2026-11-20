@@ -45,8 +45,6 @@ public class StudentAttendanceService {
 	@Autowired
 	private TStudentAttendanceMapper tStudentAttendanceMapper;
 	
-	//@Autowired
-	//private TStudentAttendance tStudentAttendance;
 
 	/**
 	 * 勤怠一覧情報取得
@@ -224,8 +222,8 @@ public class StudentAttendanceService {
 		attendanceForm.setLeaveFlg(loginUserDto.getLeaveFlg());
 		attendanceForm.setBlankTimes(attendanceUtil.setBlankTime());
 		//下公現太‐Task.26
-		//attendanceForm.setHourMap(attendanceUtil.setHourMap());
-		//attendanceForm.setMinuteMap(attendanceUtil.setMinuteMap());
+		attendanceForm.setHourMap(attendanceUtil.setHourMap());
+		attendanceForm.setMinuteMap(attendanceUtil.setMinuteMap());
 
 		// 途中退校している場合のみ設定
 		if (loginUserDto.getLeaveDate() != null) {
@@ -259,14 +257,16 @@ public class StudentAttendanceService {
 			dailyAttendanceForm.setStatusDispName(attendanceManagementDto.getStatusDispName());
 			
 			//下公現太‐Task.26
-			//出勤時間（時）の追加
-			//dailyAttendanceForm
-			//.setTrainingStartTimeHour
-			//(timeString = attendanceManagementDto.getTrainingStartTime();
-			//startHour=Integer.parseInt(timeString.substring(0, 2));
-			//attendanceManagementDto.getTrainingStartTime());
+			//出勤時間（時・分）の追加
+			String timeStringStart = attendanceManagementDto.getTrainingStartTime();
+			dailyAttendanceForm.setTrainingStartTimeHour(attendanceUtil.setTrainingStartTimeHour(timeStringStart));
+			dailyAttendanceForm.setTrainingStartTimeMinute(attendanceUtil.setTrainingStartTimeMinute(timeStringStart));
 			
-			
+			//退勤時間（時・分）の追加
+			String timeStringEnd = attendanceManagementDto.getTrainingEndTime();
+			dailyAttendanceForm.setTrainingEndTimeHour(attendanceUtil.setTrainingEndTimeHour(timeStringEnd));
+			dailyAttendanceForm.setTrainingEndTimeMinute(attendanceUtil.setTrainingEndTimeMinute(timeStringEnd));
+
 
 			attendanceForm.getAttendanceList().add(dailyAttendanceForm);
 		}
@@ -383,5 +383,15 @@ public class StudentAttendanceService {
 		return false;
 	
 	}
+
+	/**
+	 * 出退勤時間（時・分）の変換（hh:mm形式）
+	 * @author 下公現太‐Task.26
+	 * @param 
+	 * @return 出退勤時間形式変換
+	 */
+	//public void formatConversion(AttendanceForm attendanceForm) {
+		//DailyAttendanceForm dailyAttendanceForm = setDailyAttendanceForm;
+		//}
 
 }
