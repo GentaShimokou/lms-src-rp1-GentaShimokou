@@ -391,18 +391,52 @@ public class StudentAttendanceService {
 	 * @return 出退勤時間形式変換
 	 */
 	public void formatConversion(AttendanceForm attendanceForm) {
-		
-		for(DailyAttendanceForm dailyAttendanceForm : attendanceForm.getAttendanceList());
-		
-		//if(trainingStartTimeHour != null || trainingStartTimeMinute != null){
+		//295行目をコピー
+		for (DailyAttendanceForm dailyAttendanceForm : attendanceForm.getAttendanceList()) {
 
-			//String startHour = attendanceUtil.setHourMap(hourMap,String.format("%02d",hourMap));
-					//String.format("%02d", attendanceUtil.setHourMap(hourMap));
-			//String startMinute = attendanceForm.trainingStartTimeMinute();
-			
-		//}
-			
-			//dailyAttendanceForm.setTrainingStartTime();
+			//日時勤怠フォームから出勤時間（時・分）を取得--パターン①
+			Integer startHour = dailyAttendanceForm.getTrainingStartTimeHour();
+			Integer startMinute = dailyAttendanceForm.getTrainingStartTimeMinute();
+
+			//出勤時刻の「時」「分」がともに入力されている場合に、「hh:mm」形式の文字列に変換
+			if (startHour != null && startMinute != null) {
+				String TrainingStartTime = String.format("%02d:%02d", startHour, startMinute);
+
+				dailyAttendanceForm.setTrainingStartTime(TrainingStartTime);
+			}
+
+			//日時勤怠フォームから退勤時間（時・分）を取得
+			Integer endHour = dailyAttendanceForm.getTrainingEndTimeHour();
+			Integer endMinute = dailyAttendanceForm.getTrainingEndTimeMinute();
+
+			//退勤時刻の「時」「分」がともに入力されている場合に、「hh:mm」形式の文字列に変換
+			if (endHour != null && endMinute != null) {
+				String TrainingEndTime = String.format("%02d:%02d", endHour, endMinute);
+
+				dailyAttendanceForm.setTrainingEndTime(TrainingEndTime);
+			}
+
+			//日時勤怠フォームから出勤時間（時・分）を取得--パターン②
+			//if (dailyAttendanceForm.trainingStartTimeHour != null
+			//&& dailyAttendanceForm.trainingStartTimeMinute != null) {
+
+			//String startHour = String.format("%02d", dailyAttendanceForm.getTrainingStartTimeHour());
+			//String startMinute = String.format("%02d", dailyAttendanceForm.getTrainingStartTimeMinute());
+			//取得した出勤時間（時・分）をhh:mm形式の文字列に変換
+			//dailyAttendanceForm.setTrainingStartTime(startHour + ":" + startMinute);
+			//}
+
+			//日時勤怠フォームから退勤時間（時・分）を取得
+			//if (dailyAttendanceForm.trainingEndTimeHour != null
+			//&& dailyAttendanceForm.trainingEndTimeMinute != null) {
+
+			//String endHour = String.format("%02d", dailyAttendanceForm.getTrainingEndTimeHour());
+			//String endMinute = String.format("%02d", dailyAttendanceForm.getTrainingEndTimeMinute());
+			//取得した出勤時間（時・分）をhh:mm形式の文字列に変換
+			//dailyAttendanceForm.setTrainingEndTime(endHour + ":" + endMinute);
+			//}
+
 		}
+	}
 
 }

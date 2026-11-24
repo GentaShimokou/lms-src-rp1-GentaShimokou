@@ -150,8 +150,8 @@ public class AttendanceController {
 
 		//下公現太‐Task.26
 		//出退勤時間の時・分をhh:mm形式に加工する
-		//String formatConversion = studentAttendanceService.formatConversion(AttendanceForm);
-		
+		//String formatConversion = studentAttendanceService.formatConversion(attendanceForm);
+		//model.addAttribute("formatConversion", formatConversion);
 		
 		return "attendance/detail";
 	}

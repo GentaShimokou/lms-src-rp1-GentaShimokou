@@ -49,11 +49,11 @@ public class DailyAttendanceForm {
 	
 	//下公現太‐Task.26
 	/** 出勤時間（時） */
-	private Integer trainingStartTimeHour;
+	public Integer trainingStartTimeHour;
 	/** 出勤時間（分） */
-	private Integer trainingStartTimeMinute;
+	public Integer trainingStartTimeMinute;
 	/** 退勤時間（時） */
-	private Integer trainingEndTimeHour;
+	public Integer trainingEndTimeHour;
 	/** 退勤時間（分） */
-	private Integer trainingEndTimeMinute;
+	public Integer trainingEndTimeMinute;
 }
