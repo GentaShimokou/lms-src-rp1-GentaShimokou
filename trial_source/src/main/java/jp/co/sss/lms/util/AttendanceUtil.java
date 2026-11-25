@@ -185,7 +185,7 @@ public class AttendanceUtil {
 	 */
 	public Integer setTrainingStartTimeHour(String timeString) {
 		//空文字またはNULLだった時にnullを返す
-		if(timeString.isEmpty()) {
+		if(timeString == null || timeString.isEmpty()) {
 			return null;
 		}
 		//例）「09:15」の時刻から、「9」の部分を切り取る
@@ -200,7 +200,7 @@ public class AttendanceUtil {
 	 */
 	public Integer setTrainingStartTimeMinute(String timeString) {
 		//空文字またはNULLだった時にnullを返す
-		if (timeString.isEmpty()) {
+		if (timeString == null || timeString.isEmpty()) {
 			return null;
 		}
 		//例）「09:15」の時刻から、「15」の部分を切り取る
@@ -215,7 +215,7 @@ public class AttendanceUtil {
 	 */
 	public Integer setTrainingEndTimeHour(String timeString) {
 		//空文字またはNULLだった時にnullを返す
-		if (timeString.isEmpty()) {
+		if (timeString == null || timeString.isEmpty()) {
 			return null;
 		}
 		//例）「09:15」の時刻から、「9」の部分を切り取る
@@ -230,7 +230,7 @@ public class AttendanceUtil {
 	 */
 	public Integer setTrainingEndTimeMinute(String timeString) {
 		//空文字またはNULLだった時にnullを返す
-		if (timeString.isEmpty()) {
+		if (timeString == null || timeString.isEmpty()) {
 			return null;
 		}
 		//例）「09:15」の時刻から、「15」の部分を切り取る
