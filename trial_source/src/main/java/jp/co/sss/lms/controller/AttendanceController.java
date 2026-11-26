@@ -140,6 +140,10 @@ public class AttendanceController {
 	public String complete(AttendanceForm attendanceForm, Model model, BindingResult result)
 			throws ParseException {
 
+		//下公現太‐Task.27
+		//エラーがある場合にBindingResultを更新する。
+		studentAttendanceService.updateInputCheck(attendanceForm, result);
+		
 		//下公現太‐Task.26
 		//出退勤時間の時・分をhh:mm形式に加工する
 		studentAttendanceService.formatConversion(attendanceForm);

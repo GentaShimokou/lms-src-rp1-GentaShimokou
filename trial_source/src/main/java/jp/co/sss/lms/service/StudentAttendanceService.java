@@ -9,6 +9,7 @@ import java.util.List;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.BindingResult;
 
 import jp.co.sss.lms.dto.AttendanceManagementDto;
 import jp.co.sss.lms.dto.LoginUserDto;
@@ -415,28 +416,29 @@ public class StudentAttendanceService {
 
 				dailyAttendanceForm.setTrainingEndTime(TrainingEndTime);
 			}
-
-			//日時勤怠フォームから出勤時間（時・分）を取得--パターン②
-			//if (dailyAttendanceForm.trainingStartTimeHour != null
-			//&& dailyAttendanceForm.trainingStartTimeMinute != null) {
-
-			//String startHour = String.format("%02d", dailyAttendanceForm.getTrainingStartTimeHour());
-			//String startMinute = String.format("%02d", dailyAttendanceForm.getTrainingStartTimeMinute());
-			//取得した出勤時間（時・分）をhh:mm形式の文字列に変換
-			//dailyAttendanceForm.setTrainingStartTime(startHour + ":" + startMinute);
-			//}
-
-			//日時勤怠フォームから退勤時間（時・分）を取得
-			//if (dailyAttendanceForm.trainingEndTimeHour != null
-			//&& dailyAttendanceForm.trainingEndTimeMinute != null) {
-
-			//String endHour = String.format("%02d", dailyAttendanceForm.getTrainingEndTimeHour());
-			//String endMinute = String.format("%02d", dailyAttendanceForm.getTrainingEndTimeMinute());
-			//取得した出勤時間（時・分）をhh:mm形式の文字列に変換
-			//dailyAttendanceForm.setTrainingEndTime(endHour + ":" + endMinute);
-			//}
-
 		}
+	}
+	
+	public void updateInputCheck(AttendanceForm attendanceForm, BindingResult result) {
+		
+		if(result.hasErrors()) {
+			return;
+		}
+		//この間に何が必要か
+		
+		//備考の文字数が100文字を超えた場合、エラー
+		//if(dailyAttendanceForm.getNote().length() > 100) {
+			
+		//}
+		
+		//result addError(new FieldError(result.getObjectName(),
+				//"attendanceList["+ i +"].note",
+				//messageUtil.getMessage(Contants.VALID_KEY_MAXLENGTH, new String[] {"備考", "100"})));
+		
+		//for (DailyAttendanceForm dailyAttendanceForm : attendanceForm.getAttendanceList());
+		
+			
+		
 	}
 
 }
